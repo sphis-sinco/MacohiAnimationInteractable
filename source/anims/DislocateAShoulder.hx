@@ -98,29 +98,34 @@ class DislocateAShoulder extends PauseMState
 
 		FlxG.watch.addQuick('mouseOverlapsAurora()', mouseOverlapsAurora());
 
-		if (villianAurora.brightness > 0)
-			villianAurora.brightness = 0;
-
-		if ((bg.anim.frameIndex >= 152 && bg.anim.frameIndex <= 176) && !interupt)
+		if (!paused)
 		{
-			if (!Cursor.cursorVisible && !interupt)
-				Cursor.cursorVisible = true;
-			if (Cursor.cursorVisible && interupt)
-				Cursor.cursorVisible = false;
-
-			if (mouseOverlapsAurora() && !interupt)
+			if (villianAurora.brightness > 0)
+				villianAurora.brightness = 0;
+			
+			if ((bg.anim.frameIndex >= 152 && bg.anim.frameIndex <= 176) && !interupt)
 			{
-				villianAurora.brightness = 0.5;
+				if (!Cursor.cursorVisible && !interupt)
+					Cursor.cursorVisible = true;
+				if (Cursor.cursorVisible && interupt)
+					Cursor.cursorVisible = false;
 
-				if (FlxG.mouse.justReleased && !interupt)
-					interupt = true;
+				if (mouseOverlapsAurora() && !interupt)
+				{
+					villianAurora.brightness = 0.5;
+
+					if (FlxG.mouse.justReleased && !interupt)
+						interupt = true;
+				}
+			}
+			else
+			{
+				if (Cursor.cursorVisible)
+					Cursor.cursorVisible = false;
 			}
 		}
-		else
-		{
-			if (Cursor.cursorVisible)
-				Cursor.cursorVisible = false;
-		}
+		else if (Cursor.cursorVisible)
+			Cursor.cursorVisible = false;
 	}
 
 	public function mouseOverlapsAurora():Bool
