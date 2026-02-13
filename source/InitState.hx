@@ -19,7 +19,7 @@ class InitState extends MState
 	public static var NEWGROUNDS:NGio;
 	#end
 
-	public static var save:MAISave = new MAISave();
+	public static var save:MAISave;
 
 	override public function create()
 	{
@@ -55,6 +55,8 @@ class InitState extends MState
 		{
 			return '';
 		}
+
+		save = new MAISave();
 
 		#if (ENABLE_NEWGROUNDS && newgrounds)
 		NEWGROUNDS = new NGio(apistuff[0], apistuff[1]);
