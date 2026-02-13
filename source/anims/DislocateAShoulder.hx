@@ -30,13 +30,18 @@ class DislocateAShoulder extends MState
 
 		for (prop in [bg, ogAurora, heroNicom, villianAurora, ogNicom])
 		{
-			prop.setPosition(0, 0);
-
 			prop.addFrameLabelAnim('main', 'main', 24, false);
 			prop.playAnim('main');
 
 			add(prop);
 		}
+
+		bg.setPosition(0, 0);
+		
+		ogAurora.setPosition(0, 0);
+		ogNicom.setPosition(0, 0);
+		villianAurora.setPosition(0, 0);
+		heroNicom.setPosition(0, 0);
 
 		FlxG.sound.play(AssetPaths.sound('DISLOCATE_A_SHOULDER_fixedvol'), 1.0, false, null, true, function()
 		{
