@@ -51,8 +51,11 @@ class DislocateAShoulder extends PauseMState
 			trace('Done');
 			FlxG.sound.music.stop();
 
-			MedalPopup.displayMedal(AssetPaths.image('dislocate_a_shoulder', 'medals'));
-			
+			if (interupt)
+				InitState.save.addMedal('dont_dislocate_a_shoulder', 88414);
+			else
+				InitState.save.addMedal('dislocate_a_shoulder', 88413);
+
 			FlxG.switchState(AnimationSelect.new);
 		});
 
@@ -75,12 +78,12 @@ class DislocateAShoulder extends PauseMState
 
 		if ((bg.anim.frameIndex == 180) && interupt)
 		{
-			interupt = false;
 			canPause = false;
 
 			trace('You saved him');
 			FlxG.sound.music.stop();
 
+			bg.anim.frameIndex = 179;
 			bg.anim.pause();
 			ogAurora.anim.pause();
 			heroNicom.anim.pause();

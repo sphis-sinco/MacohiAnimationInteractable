@@ -1,3 +1,4 @@
+import macohi.objects.MedalPopup;
 import macohi.funkin.pre_vslice.NGio;
 import macohi.save.SaveField;
 import macohi.save.Save;
@@ -26,6 +27,8 @@ class MAISave extends Save
 		if (!medals.get().contains(medal))
 		{
 			medals.get().push(medal);
+
+			MedalPopup.displayMedal(medal);
 
 			#if (ENABLE_NEWGROUNDS && newgrounds)
 			if (ngID != 0)
