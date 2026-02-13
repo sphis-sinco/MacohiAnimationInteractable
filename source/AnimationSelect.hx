@@ -1,4 +1,5 @@
 import macohi.funkin.koya.backend.plugins.Cursor;
+import macohi.objects.MedalPopup;
 import macohi.funkin.koya.backend.AssetPaths;
 import anims.DislocateAShoulder;
 import flixel.FlxG;

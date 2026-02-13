@@ -1,3 +1,4 @@
+import macohi.objects.MedalPopup;
 import macohi.funkin.pre_vslice.NGio;
 import macohi.util.StringUtil;
 import macohi.funkin.koya.backend.plugins.Cursor;

@@ -34,6 +34,7 @@
 	
 	<assets path="assets" />
 	<assets path="assets/medals/data/apistuff.txt" embed="true"/>
+	<assets path="source/macohi/assets" rename="assets"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
