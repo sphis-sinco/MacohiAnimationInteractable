@@ -31,7 +31,9 @@
 
 	<set name="BUILD_DIR" value="export" />
 	<source path="source" />
+	
 	<assets path="assets" />
+	<assets path="assets/medals/data/apistuff.txt" embed="true"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -39,7 +41,6 @@
 	<haxelib name="flixel-addons" />
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-animate" />
-	<haxelib name="newgrounds" if="ENABLE_NEWGROUNDS"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
@@ -91,4 +92,7 @@
 	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_TRACE" if="CRASH_HANDLER" />
+
+	<define name="ENABLE_NEWGROUNDS"/>
+	<haxelib name="newgrounds" if="ENABLE_NEWGROUNDS"/>
 </project>

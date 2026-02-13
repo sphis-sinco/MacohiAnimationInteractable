@@ -1,3 +1,5 @@
+import macohi.funkin.pre_vslice.NGio;
+import macohi.util.StringUtil;
 import macohi.funkin.koya.backend.plugins.Cursor;
 import macohi.funkin.MegaVars;
 import flixel.FlxSprite;
@@ -10,9 +12,18 @@ import macohi.overrides.MState;
 
 class InitState extends MState
 {
+	public var apistuff:Array<String> = StringUtil.splitTextAssetByNewlines(AssetPaths.txt('data/apistuff', 'medals'));
+
+	#if (ENABLE_NEWGROUNDS && newgrounds)
+	public static var NEWGROUNDS:NGio;
+	#end
+
 	override public function create()
 	{
 		super.create();
+
+		if (apistuff == [] || apistuff == null)
+			apistuff = ['', ''];
 
 		Log.trace = CustomTrace.newTrace;
 
@@ -39,6 +50,10 @@ class InitState extends MState
 		{
 			return '';
 		}
+
+		#if (ENABLE_NEWGROUNDS && newgrounds)
+		NEWGROUNDS = new NGio(apistuff[0], apistuff[1]);
+		#end
 
 		FlxG.switchState(AnimationSelect.new);
 	}
