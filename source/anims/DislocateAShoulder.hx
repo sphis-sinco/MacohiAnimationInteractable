@@ -1,5 +1,6 @@
 package anims;
 
+import flixel.util.FlxTimer;
 import macohi.funkin.koya.backend.plugins.Cursor;
 import flixel.FlxG;
 import macohi.funkin.koya.backend.AssetPaths;
@@ -62,12 +63,41 @@ class DislocateAShoulder extends MState
 	{
 		super.update(elapsed);
 
-		if ((bg.anim.frameIndex == 181) && interupt)
+		if ((bg.anim.frameIndex == 180) && interupt)
 		{
+			interupt = false;
+
 			trace('You saved him');
 			FlxG.sound.music.stop();
 
-			FlxG.switchState(AnimationSelect.new);
+			bg.anim.pause();
+			ogAurora.anim.pause();
+			heroNicom.anim.pause();
+
+			villianAurora.frames = AssetPaths.getAnimateAtlas('villianAurora-miss');
+			villianAurora.addFrameLabelAnim('main', 'miss', 24, false);
+
+			ogNicom.frames = AssetPaths.getAnimateAtlas('ogNicom-dodge');
+			ogNicom.addFrameLabelAnim('main', 'dodge', 24, false);
+
+			for (prop in [villianAurora, ogNicom])
+				prop.playAnim('main');
+
+			villianAurora.setPosition(
+				300.75,
+				537.65,
+			);
+			ogNicom.setPosition(
+				242.7,
+				471.35,
+			);
+
+			FlxTimer.wait(1.0, function()
+			{
+				bg.anim.onFinish.dispatch('none');
+			});
+
+			// FlxG.switchState(AnimationSelect.new);
 		}
 
 		FlxG.watch.addQuick('mouseOverlapsAurora()', mouseOverlapsAurora());
@@ -75,7 +105,7 @@ class DislocateAShoulder extends MState
 		if (villianAurora.brightness > 0)
 			villianAurora.brightness = 0;
 
-		if ((bg.anim.frameIndex >= 153 && bg.anim.frameIndex <= 181) && !interupt)
+		if ((bg.anim.frameIndex >= 152 && bg.anim.frameIndex <= 176) && !interupt)
 		{
 			if (!Cursor.cursorVisible && !interupt)
 				Cursor.cursorVisible = true;
