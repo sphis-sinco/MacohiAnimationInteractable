@@ -6,7 +6,7 @@ class MAISave extends Save
 	{
 		super();
 
-		version.set(1);
+		SAVE_VERSION = 1;
 		init('MacohiAnimationInteractable', null);
 	}
 }
