@@ -1,3 +1,4 @@
+import macohi.funkin.MegaVars;
 import flixel.FlxSprite;
 import macohi.debugging.CrashHandler;
 import macohi.debugging.CustomTrace;
@@ -20,6 +21,8 @@ class InitState extends MState
 		AssetPaths.soundExt = 'wav';
 
 		FlxSprite.defaultAntialiasing = true;
+
+		MegaVars.VCR_LIBRARY = 'main';
 
 		FlxG.switchState(AnimationSelect.new);
 	}
