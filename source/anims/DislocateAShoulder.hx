@@ -53,7 +53,7 @@ class DislocateAShoulder extends PauseMState
 		});
 
 		FlxG.sound.playMusic(AssetPaths.sound('DISLOCATE_A_SHOULDER_fixedvol'));
-		
+
 		super.create();
 	}
 
@@ -66,6 +66,7 @@ class DislocateAShoulder extends PauseMState
 		if ((bg.anim.frameIndex == 180) && interupt)
 		{
 			interupt = false;
+			canPause = false;
 
 			trace('You saved him');
 			FlxG.sound.music.stop();
