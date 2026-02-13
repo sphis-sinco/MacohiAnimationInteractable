@@ -36,15 +36,16 @@ class DislocateAShoulder extends MState
 			add(prop);
 		}
 
-		bg.setPosition(0, 0);
+		bg.screenCenter();
 
-		ogNicom.setPosition(-127.95, -163.75);
-		villianAurora.setPosition(-291.9, -452);
+		ogNicom.setPositionBasedOnDimensions(-127.95, -163.75, 640, 480);
+		villianAurora.setPositionBasedOnDimensions(-291.9, -452, 640, 480);
 
-		ogAurora.setPosition(121.25, 209.7);
-		heroNicom.setPosition(369, 131.25);
+		ogAurora.setPositionBasedOnDimensions(121.25, 209.7, 640, 480);
+		heroNicom.setPositionBasedOnDimensions(369, 131.25, 640, 480);
 
-		bg.anim.onFinish.add(function(a) {
+		bg.anim.onFinish.add(function(a)
+		{
 			trace('Done');
 			FlxG.switchState(AnimationSelect.new);
 		});
