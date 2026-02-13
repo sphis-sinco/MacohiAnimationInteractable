@@ -2,8 +2,10 @@ import macohi.save.Save;
 
 class MAISave extends Save
 {
-	public function new()
+	override public function new()
 	{
+		super();
+
 		init('MacohiAnimationInteractable', null);
 	}
 }
