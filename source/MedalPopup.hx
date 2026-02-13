@@ -19,7 +19,7 @@ class MedalPopup extends FlxBasic
 		medal = new MSprite().loadGraphic(mp);
 		medal.screenCenter();
 
-		medal.y = FlxG.height * 0.8;
+		medal.y = FlxG.height * 0.75;
 
 		medal.alpha = 1;
 
