@@ -29,23 +29,11 @@ class DislocateAShoulder extends MState
 		villianAurora.frames = AssetPaths.getAnimateAtlas('villianAurora');
 		heroNicom.frames = AssetPaths.getAnimateAtlas('heroNicom');
 
-		ogNicom.setPosition(
-			-150.15,
-			-180
-		);
-		villianAurora.setPosition(
-			-235.4,
-			-184.9
-		);
+		ogNicom.setPosition(-150.15, -180);
+		villianAurora.setPosition(-235.4, -184.9);
 
-		ogAurora.setPosition(
-			378.6,
-			476.85
-		);
-		heroNicom.setPosition(
-			797.85,
-			398.4
-		);
+		ogAurora.setPosition(378.6, 476.85);
+		heroNicom.setPosition(797.85, 398.4);
 
 		for (prop in [bg, ogAurora, heroNicom, villianAurora, ogNicom])
 		{
@@ -66,11 +54,32 @@ class DislocateAShoulder extends MState
 
 		FlxG.sound.play(AssetPaths.sound('DISLOCATE_A_SHOULDER_fixedvol'));
 	}
-	
-	override function update(elapsed:Float) {
+
+	public var interupt:Bool = false;
+
+	override function update(elapsed:Float)
+	{
 		super.update(elapsed);
 
-		if (bg.anim.frameIndex == 153)
-			Cursor.cursorVisible = true;
+		if ((bg.anim.frameIndex >= 153 && bg.anim.frameIndex <= 181) && !interupt)
+		{
+			if (FlxG.mouse.overlaps(villianAurora) && !interupt)
+			{
+				villianAurora.brightness = 0.25;
+
+				if (FlxG.mouse.justReleased && !interupt)
+					interupt = true;
+			}
+			else if (villianAurora.brightness > 0.0)
+				villianAurora.brightness = 0.0;
+
+			if (!interupt)
+			{
+				if (!Cursor.cursorVisible)
+					Cursor.cursorVisible = true;
+			}
+			else if (Cursor.cursorVisible)
+				Cursor.cursorVisible = false;
+		}
 	}
 }
