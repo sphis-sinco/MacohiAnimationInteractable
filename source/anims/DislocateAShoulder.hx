@@ -92,6 +92,7 @@ class DislocateAShoulder extends MState
 				471.35,
 			);
 
+			FlxG.sound.play(AssetPaths.sound('weirdRoute', 'main'));
 			FlxTimer.wait(1.0, function()
 			{
 				bg.anim.onFinish.dispatch('none');
