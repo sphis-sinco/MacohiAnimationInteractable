@@ -1,3 +1,4 @@
+import macohi.funkin.koya.backend.plugins.Cursor;
 import macohi.funkin.koya.backend.AssetPaths;
 import anims.DislocateAShoulder;
 import flixel.FlxG;
@@ -38,6 +39,8 @@ class AnimationSelect extends OptionsMenuState
 		pinkBG.visible = false;
 
 		super.create();
+
+		Cursor.cursorVisible = false;
 	}
 
 	override function update(elapsed:Float)

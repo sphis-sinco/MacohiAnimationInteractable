@@ -1,5 +1,6 @@
 package anims;
 
+import macohi.funkin.koya.backend.plugins.Cursor;
 import flixel.FlxG;
 import macohi.funkin.koya.backend.AssetPaths;
 import macohi.overrides.MSprite;
@@ -64,5 +65,12 @@ class DislocateAShoulder extends MState
 		});
 
 		FlxG.sound.play(AssetPaths.sound('DISLOCATE_A_SHOULDER_fixedvol'));
+	}
+	
+	override function update(elapsed:Float) {
+		super.update(elapsed);
+
+		if (bg.anim.frameIndex == 153)
+			Cursor.cursorVisible = true;
 	}
 }
