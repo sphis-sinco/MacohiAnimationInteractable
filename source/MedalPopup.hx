@@ -14,7 +14,9 @@ class MedalPopup extends FlxBasic
 
 	public static function displayMedal(mp:String)
 	{
-		medal.loadGraphic(mp);
+		medal.destroy();
+
+		medal = new MSprite().loadGraphic(mp);
 		medal.screenCenter();
 
 		medal.y = FlxG.height * 0.8;
