@@ -37,15 +37,18 @@ class DislocateAShoulder extends MState
 		}
 
 		bg.setPosition(0, 0);
-		
-		ogAurora.setPosition(0, 0);
-		ogNicom.setPosition(0, 0);
-		villianAurora.setPosition(0, 0);
-		heroNicom.setPosition(0, 0);
 
-		FlxG.sound.play(AssetPaths.sound('DISLOCATE_A_SHOULDER_fixedvol'), 1.0, false, null, true, function()
-		{
+		ogNicom.setPosition(-127.95, -163.75);
+		villianAurora.setPosition(-291.9, -452);
+
+		ogAurora.setPosition(121.25, 209.7);
+		heroNicom.setPosition(369, 131.25);
+
+		bg.anim.onFinish.add(function(a) {
 			trace('Done');
+			FlxG.resetState();
 		});
+
+		FlxG.sound.play(AssetPaths.sound('DISLOCATE_A_SHOULDER_fixedvol'));
 	}
 }
