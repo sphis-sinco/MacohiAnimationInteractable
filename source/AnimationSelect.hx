@@ -1,3 +1,4 @@
+import macohi.funkin.koya.backend.AssetPaths;
 import anims.DislocateAShoulder;
 import flixel.FlxG;
 import macohi.funkin.koya.frontend.scenes.menustates.OptionsMenuState;
@@ -18,6 +19,25 @@ class AnimationSelect extends OptionsMenuState
 		{
 			FlxG.switchState(DislocateAShoulder.new);
 		});
+	}
+
+	override function create()
+	{
+		AssetPaths.setCurrentLevel('main');
+		flashBG.lib = pinkBG.lib = null;
+		flashBG.reloadBG = pinkBG.reloadBG = function(?pink:Bool)
+		{
+			// pinkBG.loadGraphic();
+			// flashBG.loadGraphic();
+		};
+
+		flashBG.reloadBG(false);
+		pinkBG.reloadBG(false);
+
+		flashBG.visible = false;
+		pinkBG.visible = false;
+
+		super.create();
 	}
 
 	override function update(elapsed:Float)
