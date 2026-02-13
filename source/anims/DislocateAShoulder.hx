@@ -1,5 +1,6 @@
 package anims;
 
+import macohi.objects.MedalPopup;
 import macohi.backend.PauseMState;
 import flixel.util.FlxTimer;
 import macohi.funkin.koya.backend.plugins.Cursor;
@@ -49,6 +50,9 @@ class DislocateAShoulder extends PauseMState
 		{
 			trace('Done');
 			FlxG.sound.music.stop();
+
+			MedalPopup.displayMedal(AssetPaths.image('dislocate_a_shoulder', 'medals'));
+			
 			FlxG.switchState(AnimationSelect.new);
 		});
 
