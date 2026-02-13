@@ -83,14 +83,8 @@ class DislocateAShoulder extends MState
 			for (prop in [villianAurora, ogNicom])
 				prop.playAnim('main');
 
-			villianAurora.setPosition(
-				300.75,
-				537.65,
-			);
-			ogNicom.setPosition(
-				242.7,
-				471.35,
-			);
+			villianAurora.setPosition(300.75, 537.65,);
+			ogNicom.setPosition(242.7, 471.35,);
 
 			FlxG.sound.play(AssetPaths.sound('weirdRoute', 'main'));
 			FlxTimer.wait(1.0, function()
