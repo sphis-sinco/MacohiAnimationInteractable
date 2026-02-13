@@ -63,6 +63,12 @@ class DislocateAShoulder extends PauseMState
 	{
 		super.update(elapsed);
 
+		if (paused)
+		{
+			if (FlxG.keys.anyJustReleased([ENTER]))
+				FlxG.switchState(AnimationSelect.new);
+		}
+
 		if ((bg.anim.frameIndex == 180) && interupt)
 		{
 			interupt = false;
@@ -102,7 +108,7 @@ class DislocateAShoulder extends PauseMState
 		{
 			if (villianAurora.brightness > 0)
 				villianAurora.brightness = 0;
-			
+
 			if ((bg.anim.frameIndex >= 152 && bg.anim.frameIndex <= 176) && !interupt)
 			{
 				if (!Cursor.cursorVisible && !interupt)
